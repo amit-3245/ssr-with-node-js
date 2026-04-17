@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+
+<h1>URL Shortener Dashboard</h1>
+
+<form action="/shorten" method="POST">
+    <input type="text" name="originalUrl" placeholder="Enter URL" required>
+    <button type="submit">Shorten</button>
+</form>
+
+<h2>All URLs</h2>
+
+<ul>
+    <% urls.forEach(url => { %>
+        <li>
+            <%= url.originalUrl %> →
+            <a href="/<%= url.shortCode %>">
+                http://localhost:3000/<%= url.shortCode %>
+            </a>
+        </li>
+    <% }) %>
+</ul>
+
+<%- include("../partials/footer") %>
